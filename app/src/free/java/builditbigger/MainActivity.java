@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package builditbigger;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,8 @@ import android.widget.Toast;
 
 import com.example.JokeProvider;
 import com.example.displayjokelibrary.JokeActivity;
-import com.udacity.gradle.builditbigger.data.JokeAsyncTask;
+import com.udacity.gradle.builditbigger.R;
+import builditbigger.data.JokeAsyncTask;
 
 
 public class MainActivity extends ActionBarActivity implements JokeAsyncTask.AsyncResponse{
