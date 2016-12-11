@@ -18,7 +18,7 @@ import java.io.IOException;
  * Created by beesham on 08/12/16.
  */
 
-public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class JokeAsyncTask extends AsyncTask<Void, Void, String> {
     private static JokeApi jokeApiService = null;
     private Context context;
     public AsyncResponse delegate = null;
@@ -28,7 +28,7 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
     }
 
     @Override
-    protected String doInBackground(Pair<Context, String>... pairs) {
+    protected String doInBackground(Void... params) {
         if(jokeApiService == null){
             JokeApi.Builder builder = new JokeApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -42,8 +42,6 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
             jokeApiService = builder.build();
         }
 
-        context = pairs[0].first;
-
         try{
             return jokeApiService.getJoke().execute().getData();
         } catch (IOException e) {
@@ -51,9 +49,9 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
         }
     }
 
+
     @Override
     protected void onPostExecute(String s) {
-        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
         delegate.jokeResponse(s);
     }
 }

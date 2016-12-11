@@ -37,7 +37,7 @@ public class AsyncTaskTest implements JokeAsyncTask.AsyncResponse{
         JokeProvider jokeProvider = new JokeProvider();
         JokeAsyncTask jokeAsyncTask = new JokeAsyncTask();
         jokeAsyncTask.delegate = this;
-        jokeAsyncTask.execute(new Pair<Context, String>(getContext(), jokeProvider.getJoke()));
+        jokeAsyncTask.execute();
     }
 
     @Override

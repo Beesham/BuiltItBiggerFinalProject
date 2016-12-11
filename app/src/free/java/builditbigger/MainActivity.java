@@ -52,13 +52,9 @@ public class MainActivity extends ActionBarActivity implements JokeAsyncTask.Asy
     }
 
     public void tellJoke(View view) {
-        //Toast.makeText(this, jokeProvider.getJoke(), Toast.LENGTH_SHORT).show();
-        /*Intent intent = new Intent(this, JokeActivity.class);
-        intent.putExtra("joke", jokeProvider.getJoke());
-        startActivity(intent);*/
         JokeAsyncTask jokeAsyncTask = new JokeAsyncTask();
         jokeAsyncTask.delegate = this;
-        jokeAsyncTask.execute(new Pair<Context, String>(this, jokeProvider.getJoke()));
+        jokeAsyncTask.execute();
     }
 
 
