@@ -58,7 +58,7 @@ public class MainActivity extends ActionBarActivity implements JokeAsyncTask.Asy
         startActivity(intent);*/
         JokeAsyncTask jokeAsyncTask = new JokeAsyncTask();
         jokeAsyncTask.delegate = this;
-        jokeAsyncTask.execute(new Pair<Context, String>(this, jokeProvider.getJoke()));
+        jokeAsyncTask.execute();
     }
 
 
